@@ -1,0 +1,7 @@
+[Desktop Entry]
+_Name=LockerTest
+Exec=qmlscene %U qml/Main.qml
+Icon=assets/locked.png
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
