@@ -170,8 +170,8 @@ Page {
                     id: icon
                     name: root.editMode ? "tick" : "edit"
                     objectName: "EraseBtn"
-                    height: units.gu(3)
-                    width: units.gu(3)
+                    height: units.gu(2.5)
+                    width: units.gu(2.5)
                     color: enabled ? d.selected : d.disabled
                     enabled: true
                     anchors.verticalCenter: parent.verticalCenter
