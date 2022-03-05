@@ -9,7 +9,7 @@
             "desktop":  "lockertest.desktop"
         }
     },
-    "version": "1.1.0",
+    "version": "1.1.2",
     "maintainer": "Your FullName <email@domain.org>",
     "framework" : "@CLICK_FRAMEWORK@"
 }

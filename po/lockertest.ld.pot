@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lockertest.ld\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-03 21:06+0000\n"
+"POT-Creation-Date: 2022-03-05 18:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,33 +17,31 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/SchemaPinPromptTutorial.qml:98
+#: ../qml/SchemaPinPromptTutorial.qml:102
 msgid "Clock prompt demo"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorial.qml:139
+#: ../qml/SchemaPinPromptTutorial.qml:143
 msgid "enter custom code:"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorial.qml:139
+#: ../qml/SchemaPinPromptTutorial.qml:143
 msgid "try code:"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorial.qml:202
+#: ../qml/SchemaPinPromptTutorial.qml:206
 msgid "Click or swipe on the dots"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorial.qml:402
+#: ../qml/SchemaPinPromptTutorial.qml:406
 msgid "Display active area"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorial.qml:429
-#: ../qml/SchemaPinPromptTutorial.qml:448
+#: ../qml/SchemaPinPromptTutorial.qml:435
 msgid "Wrong code, try again!"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorial.qml:440
-#: ../qml/SchemaPinPromptTutorial.qml:454
+#: ../qml/SchemaPinPromptTutorial.qml:444
 msgid "Well done!"
 msgstr ""
 

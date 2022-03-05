@@ -70,6 +70,10 @@ Page {
         }
     }
 
+    function switchToEntryMode() {
+        root.state = "ENTRY_MODE"
+    }
+
     function addNumber (number, fromKeyboard) {
         let tmpCodes = currentCode
         tmpCodes.push(number)
@@ -414,30 +418,12 @@ Page {
     states: [
         State{
             name: "ENTRY_MODE"
+            PropertyChanges {
+                target: center
+                locker: "image://theme/lock"
+            }
             StateChangeScript {
                 script: root.reset();
-            }
-        },
-        State{
-            name: "WRONG_PASSWORD"
-            PropertyChanges {
-                target: center
-                locker: "image://theme/reload"
-            }
-            PropertyChanges {
-                target: resultLabel
-                text: i18n.tr("Wrong code, try again!")
-            }
-        },
-        State{
-            name: "PASSWORD_SUCCESS"
-            PropertyChanges {
-                target: center
-                locker: "image://theme/reload"
-            }
-            PropertyChanges {
-                target: resultLabel
-                text: i18n.tr("Well done!")
             }
         }
     ]
@@ -445,22 +431,27 @@ Page {
     transitions:[
         Transition {
             from: "ENTRY_MODE"; to: "WRONG_PASSWORD";
-            PropertyAction { target: resultLabel; property: "text"; value: i18n.tr("Wrong code, try again!") }
-            PropertyAction { target: center; property: "locker"; value: "image://theme/dialog-warning-symbolic" }
-            PauseAnimation { duration: 1000 }
+            SequentialAnimation {
+                PropertyAction { target: resultLabel; property: "text"; value: i18n.tr("Wrong code, try again!") }
+                PropertyAction { target: center; property: "locker"; value: "image://theme/dialog-warning-symbolic" }
+                PauseAnimation { duration: 1000 }
+                ScriptAction { script: root.switchToEntryMode() }
+            }
         },
         Transition {
             from: "ENTRY_MODE"; to: "PASSWORD_SUCCESS";
-            PropertyAction { target: resultLabel; property: "text"; value: i18n.tr("Well done!")}
-            PropertyAction { target: center; property: "locker"; value: "image://theme/tick" }
-            PauseAnimation { duration: 1200 }
-
+            SequentialAnimation {
+                PropertyAction { target: resultLabel; property: "text"; value: i18n.tr("Well done!")}
+                PropertyAction { target: center; property: "locker"; value: "image://theme/tick" }
+                PauseAnimation { duration: 1200 }
+                ScriptAction { script: root.switchToEntryMode() }
+            }
         }
     ]
 
     Timer {
         running: true
-        interval: 1
-        onTriggered: root.state = "ENTRY_MODE"
+        interval: 400
+        onTriggered: root.switchToEntryMode()
     }
 }
