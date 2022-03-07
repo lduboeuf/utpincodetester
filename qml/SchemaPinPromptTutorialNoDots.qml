@@ -106,6 +106,7 @@ Page {
     function reset() {
         currentCode = []
         loginError = false;
+        pinHint.forceActiveFocus()
     }
 
     header: PageHeader {
@@ -117,7 +118,11 @@ Page {
                     iconName: "tick"
                     visible: root.state === "PASSWORD_SUCCESS"
                     text: i18n.tr("validate")
-                    onTriggered: pageStack.removePages(root)
+                    onTriggered: {
+                        console.log('validate', root.codeToTest)
+                        root.accepted(root.codeToTest)
+                        pageStack.removePages(root)
+                    }
                 },
                 Action {
                     iconName: "edit"
@@ -192,6 +197,30 @@ Page {
                 Behavior on opacity {
                     UbuntuNumberAnimation{ duration: 500 }
                 }
+                onTextChanged: subtitleAnim.restart()
+                SequentialAnimation {
+                    id: subtitleAnim
+
+                    PropertyAnimation {
+                        target: subtitle
+                        property: "opacity"
+                        to: 0
+                        duration: 20
+                        easing.type: Easing.OutQuart
+                    }
+//                    PropertyAction {
+//                        target: subtitle
+//                        property: "count"
+//                        value: txt.count + 1
+//                    }
+                    PropertyAnimation {
+                        target: subtitle
+                        property: "opacity"
+                        to: 1
+                        duration: 1000
+                        easing.type: Easing.InOutCubic
+                    }
+                }
             }
 
 
@@ -200,8 +229,7 @@ Page {
                 anchors.horizontalCenter: parent.horizontalCenter
                 width: units.gu(20)
                 readOnly: !root.editMode
-                opacity: root.currentCode.length > 0 ? 1 : 0
-                color: root.editMode ? d.normal : d.selected
+                color: d.disabled
                 maximumLength: root.maxPinCodeDigits
                 hasClearButton: false
 
@@ -226,6 +254,25 @@ Page {
 
 
                 inputMethodHints: Qt.ImhDigitsOnly
+
+                Keys.onEscapePressed: {
+                    root.canceled();
+                    event.accepted = true;
+                }
+
+                Keys.onPressed: {
+                    if(event.key >= Qt.Key_0 && event.key <= Qt.Key_9) {
+                        root.addNumber(event.text, true)
+                        event.accepted = true;
+                    } else if (event.key === Qt.Key_Backspace) {
+                        root.removeOne()
+                    }
+
+                }
+
+                Keys.onBackPressed: {
+                    root.removeOne()
+                }
 
             }
         }

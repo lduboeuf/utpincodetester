@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lockertest.ld\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-07 20:26+0000\n"
+"POT-Creation-Date: 2022-03-07 23:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,18 +31,18 @@ msgstr ""
 
 #: ../qml/SchemaPinPromptTutorial.qml:206
 #: ../qml/SchemaPinPromptTutorial.qml:425
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:181
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:429
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:186
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:476
 msgid "Click or swipe on the dots"
 msgstr ""
 
 #: ../qml/SchemaPinPromptTutorial.qml:406
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:410
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:457
 msgid "Display active area"
 msgstr ""
 
 #: ../qml/SchemaPinPromptTutorial.qml:437
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:476
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:523
 msgid "Wrong code, try again!"
 msgstr ""
 
@@ -50,32 +50,33 @@ msgstr ""
 msgid "Well done!"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:113
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:114
 msgid "Clock prompt"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:119
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:120
+#: ../qml/SecurityCreateScenario.qml:151
 msgid "validate"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:125
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:130
 msgid "edit"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:190
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:195
 msgid "to select 4 digit pin"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:438
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:485
 msgid "Current pin"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:446
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:493
 msgid "to test your code"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:453
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:485
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:500
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:532
 msgid "correct!"
 msgstr ""
 
@@ -143,20 +144,16 @@ msgstr ""
 msgid "4-digit passcode (clock)..."
 msgstr ""
 
-#: ../qml/SecurityCreateScenario.qml:99
+#: ../qml/SecurityCreateScenario.qml:116
 msgid "Change passcode…"
 msgstr ""
 
-#: ../qml/SecurityCreateScenario.qml:105
+#: ../qml/SecurityCreateScenario.qml:124
 msgid "Existing passcode"
 msgstr ""
 
-#: ../qml/SecurityCreateScenario.qml:112
+#: ../qml/SecurityCreateScenario.qml:145
 msgid "Cancel"
-msgstr ""
-
-#: ../qml/SecurityCreateScenario.qml:118
-msgid "Unset"
 msgstr ""
 
 #: lockertest.desktop.in.h:1
