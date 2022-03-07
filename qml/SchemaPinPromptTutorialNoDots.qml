@@ -121,7 +121,7 @@ Page {
                 },
                 Action {
                     iconName: "edit"
-                    visible: root.changeMode
+                    visible: root.changeMode && root.state === "TEST_MODE"
                     text: i18n.tr("edit")
                     onTriggered: root.state = "EDIT_MODE"
                 }
@@ -495,11 +495,12 @@ Page {
         running: true
         interval: 400
         onTriggered: {
-            if (root.changeMode) {
-                root.state = "TEST_MODE";
-            } else {
-                root.state = "ENTRY_MODE";
-            }
+            root.state = "ENTRY_MODE";
+//            if (root.changeMode) {
+//                root.state = "TEST_MODE";
+//            } else {
+//                root.state = "ENTRY_MODE";
+//            }
 
 
         }
