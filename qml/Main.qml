@@ -25,16 +25,45 @@ MainView {
     objectName: 'mainView'
     applicationName: 'lockertest.ld'
     automaticOrientation: true
+    property alias pageStack: layout
 
     width: units.gu(45)
     height: units.gu(75)
 
+    Page {
+        id: home
+
+        header: PageHeader {
+            id: pageHeader
+            title: i18n.tr('Clock prompt tester')
+        }
+
+        Column {
+            anchors.centerIn: parent
+            spacing: units.gu(2)
+            Button {
+                text: "V1 ( tester only)"
+                onTriggered: pageStack.addPageToCurrentColumn(home, Qt.resolvedUrl("Security.qml"))
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
+            Button {
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: "V2 (create pincode scenario)"
+                onTriggered: pageStack.addPageToCurrentColumn(home, Qt.resolvedUrl("SecurityCreateScenario.qml"))
+            }
+            Button {
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: "V2 (change pincode scenario)"
+                onTriggered: pageStack.addPageToCurrentColumn(home, Qt.resolvedUrl("SecurityCreateScenario.qml"), { changeMode: true, index: 2 })
+            }
+        }
+    }
 
     AdaptivePageLayout {
-        id: pageStack
+        id: layout
         anchors.fill: parent
-        primaryPage: Security { }
-        //primaryPage: SchemaPinPromptTutorial {}
+        primaryPage: home
+        //primaryPage: SchemaPinPromptTutorialNoDots {}
         layouts: [
             PageColumnsLayout {
                 when: width >= units.gu(90)

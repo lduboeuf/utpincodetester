@@ -10,6 +10,13 @@ Page {
     header: PageHeader {
         id: pageHeader
         title: i18n.tr("Lock security")
+        leadingActionBar.actions: [
+            Action {
+                iconName: "back"
+                text: "Back"
+                onTriggered: pageStack.removePages(root)
+            }
+        ]
     }
 
     Column {

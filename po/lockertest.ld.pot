@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lockertest.ld\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-05 18:06+0000\n"
+"POT-Creation-Date: 2022-03-07 16:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,8 +17,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/SchemaPinPromptTutorial.qml:102
-msgid "Clock prompt demo"
+#: ../qml/Main.qml:38 ../qml/SchemaPinPromptTutorial.qml:102
+msgid "Clock prompt tester"
 msgstr ""
 
 #: ../qml/SchemaPinPromptTutorial.qml:143
@@ -30,75 +30,133 @@ msgid "try code:"
 msgstr ""
 
 #: ../qml/SchemaPinPromptTutorial.qml:206
+#: ../qml/SchemaPinPromptTutorial.qml:425
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:181
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:429
 msgid "Click or swipe on the dots"
 msgstr ""
 
 #: ../qml/SchemaPinPromptTutorial.qml:406
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:410
 msgid "Display active area"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorial.qml:435
+#: ../qml/SchemaPinPromptTutorial.qml:437
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:476
 msgid "Wrong code, try again!"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorial.qml:444
+#: ../qml/SchemaPinPromptTutorial.qml:446
 msgid "Well done!"
 msgstr ""
 
-#: ../qml/Security.qml:12
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:113
+msgid "Clock prompt"
+msgstr ""
+
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:119
+msgid "validate"
+msgstr ""
+
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:125
+msgid "edit"
+msgstr ""
+
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:190
+msgid "to select 4 digit pin"
+msgstr ""
+
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:438
+msgid "Current pin"
+msgstr ""
+
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:446
+msgid "to test your code"
+msgstr ""
+
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:453
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:485
+msgid "correct!"
+msgstr ""
+
+#: ../qml/Security.qml:12 ../qml/SecurityCreateScenario.qml:15
 msgid "Lock security"
 msgstr ""
 
-#: ../qml/Security.qml:23
+#: ../qml/Security.qml:30 ../qml/SecurityCreateScenario.qml:32
 msgid "Swipe (no security)"
 msgstr ""
 
-#: ../qml/Security.qml:24
+#: ../qml/Security.qml:31 ../qml/SecurityCreateScenario.qml:33
 msgid "4-digit passcode"
 msgstr ""
 
-#: ../qml/Security.qml:25
+#: ../qml/Security.qml:32 ../qml/SecurityCreateScenario.qml:35
 msgid "Passphrase"
 msgstr ""
 
-#: ../qml/Security.qml:26
+#: ../qml/Security.qml:33 ../qml/SecurityCreateScenario.qml:36
 msgid "Fingerprint"
 msgstr ""
 
-#: ../qml/Security.qml:27
+#: ../qml/Security.qml:34 ../qml/SecurityCreateScenario.qml:37
 msgid "Swipe (no security)… "
 msgstr ""
 
-#: ../qml/Security.qml:28
+#: ../qml/Security.qml:35 ../qml/SecurityCreateScenario.qml:38
 msgid "4-digit passcode…"
 msgstr ""
 
-#: ../qml/Security.qml:29
+#: ../qml/Security.qml:36 ../qml/SecurityCreateScenario.qml:40
 msgid "Passphrase…"
 msgstr ""
 
-#: ../qml/Security.qml:107
+#: ../qml/Security.qml:114
 msgid "Choose pincode prompt"
 msgstr ""
 
-#: ../qml/Security.qml:138 ../qml/Security.qml:193
+#: ../qml/Security.qml:145 ../qml/Security.qml:200
 msgid "try me"
 msgstr ""
 
-#: ../qml/Security.qml:161
+#: ../qml/Security.qml:168
 msgid "Classic keyboard input"
 msgstr ""
 
-#: ../qml/Security.qml:161
+#: ../qml/Security.qml:168
 msgid "Default Prompt"
 msgstr ""
 
-#: ../qml/Security.qml:162
+#: ../qml/Security.qml:169
 msgid "Click or swipe on dots to unlock"
 msgstr ""
 
-#: ../qml/Security.qml:162
+#: ../qml/Security.qml:169
 msgid "Clock Prompt"
+msgstr ""
+
+#: ../qml/SecurityCreateScenario.qml:34
+msgid "4-digit passcode (clock)"
+msgstr ""
+
+#: ../qml/SecurityCreateScenario.qml:39
+msgid "4-digit passcode (clock)..."
+msgstr ""
+
+#: ../qml/SecurityCreateScenario.qml:99
+msgid "Change passcode…"
+msgstr ""
+
+#: ../qml/SecurityCreateScenario.qml:105
+msgid "Existing passcode"
+msgstr ""
+
+#: ../qml/SecurityCreateScenario.qml:112
+msgid "Cancel"
+msgstr ""
+
+#: ../qml/SecurityCreateScenario.qml:118
+msgid "Unset"
 msgstr ""
 
 #: lockertest.desktop.in.h:1

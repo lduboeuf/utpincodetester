@@ -32,8 +32,10 @@ Page {
     property bool keyboardNeeded: false
     property bool editMode: false
     property bool activeAreaVisible: false
+    property bool changeMode: false
 
-    property string codeToTest: Math.floor(1000 + Math.random() * 9000)
+    //property string codeToTest: Math.floor(1000 + Math.random() * 9000)
+    property string codeToTest: ""
     property int previousNumber: -1
     property var currentCode: []
     property int maxnum: 10
@@ -48,12 +50,12 @@ Page {
     onCurrentCodeChanged: {
         let tmpText = ""
         let tmpCode = ""
-        for( let i = 0; i < codeToTest.length; i++) {
+        for( let i = 0; i < maxPinCodeDigits; i++) {
             if (i < currentCode.length) {
                 tmpText += '●'
                 tmpCode += currentCode[i]
             } else {
-                tmpText += codeToTest[i]
+                tmpText += '○'
             }
         }
         pinHint.text = tmpText
@@ -61,17 +63,26 @@ Page {
 
         // hard limit of 4 for passcodes right now
         if (root.enteredText.length >= maxPinCodeDigits) {
-            if (root.enteredText === root.codeToTest) {
-                root.state = "PASSWORD_SUCCESS"
+            if (root.state === "ENTRY_MODE") {
+                root.codeToTest = root.enteredText
+                root.state = "TEST_MODE"
+            } else if (root.state === "EDIT_MODE") {
+                root.codeToTest = root.enteredText
+                root.state = "ENTRY_MODE"
             } else {
-                root.state = "WRONG_PASSWORD"
+                if (root.enteredText === root.codeToTest) {
+                    root.state = "PASSWORD_SUCCESS"
+                } else {
+                    root.state = "WRONG_PASSWORD"
+                }
             }
+
             root.previousState = root.state
         }
     }
 
-    function switchToEntryMode() {
-        root.state = "ENTRY_MODE"
+    function switchToTestMode() {
+        root.state = "TEST_MODE"
     }
 
     function addNumber (number, fromKeyboard) {
@@ -99,20 +110,36 @@ Page {
 
     header: PageHeader {
         id: pageHeader
-        title: i18n.tr('Clock prompt tester')
+        title: i18n.tr('Clock prompt')
+        trailingActionBar {
+            actions: [
+                Action {
+                    iconName: "tick"
+                    visible: root.state === "PASSWORD_SUCCESS"
+                    text: i18n.tr("validate")
+                    onTriggered: pageStack.removePages(root)
+                },
+                Action {
+                    iconName: "edit"
+                    visible: root.changeMode
+                    text: i18n.tr("edit")
+                    onTriggered: root.state = "EDIT_MODE"
+                }
+            ]
+        }
     }
 
     Rectangle {
         anchors.fill: parent
         color: "purple"
-        MouseArea {
-            anchors.fill: parent
-            enabled: root.editMode
-            onClicked: {
-                pinHint.text = ""
-                pinHint.text = root.codeToTest
-            }
-        }
+//        MouseArea {
+//            anchors.fill: parent
+//            enabled: root.editMode
+//            onClicked: {
+//                pinHint.text = ""
+//                pinHint.text = root.codeToTest
+//            }
+//        }
     }
 
     StyledItem {
@@ -139,63 +166,11 @@ Page {
             Layout.alignment: Qt.AlignHCenter
             spacing: units.gu(2)
 
-            Label {
-                text: root.editMode ? i18n.tr("enter custom code:") : i18n.tr("try code:")
-                color: d.selected
-                anchors.horizontalCenter: parent.horizontalCenter
-            }
-
-            TextField {
-                id: pinHint
-                anchors.horizontalCenter: parent.horizontalCenter
-                width: units.gu(20)
-                readOnly: !root.editMode
-                color: root.editMode ? d.normal : d.selected
-                maximumLength: root.maxPinCodeDigits
-                hasClearButton: false
-                onTextChanged: {
-                    if (root.editMode && text.length === maximumLength) {
-                        root.editMode = false
-                        pinHint.focus = false
-                        root.codeToTest = text
-                        root.state = "ENTRY_MODE"
-                        root.reset()
-                    }
-                }
-                onFocusChanged: console.log('pinHint focus', focus)
-                onActiveFocusChanged: console.log('pinHint activeFocus', activeFocus)
-
-                font {
-                    pixelSize: units.gu(3)
-                    letterSpacing: units.gu(1.2)
-                }
-
-                secondaryItem: Icon {
-                    id: icon
-                    name: root.editMode ? "tick" : "edit"
-                    objectName: "EraseBtn"
-                    height: units.gu(2.5)
-                    width: units.gu(2.5)
-                    color: enabled ? d.selected : d.disabled
-                    enabled: true
-                    anchors.verticalCenter: parent.verticalCenter
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-                            if (!root.editMode) {
-                                pinHint.text = codeToTest
-                                root.editMode = true
-                                pinHint.forceActiveFocus()
-
-                            }
-                        }
-                    }
-                }
-
-
-                inputMethodHints: Qt.ImhDigitsOnly
-
-            }
+//            Label {
+//                text: root.editMode ? i18n.tr("enter custom code:") : i18n.tr("try code:")
+//                color: d.selected
+//                anchors.horizontalCenter: parent.horizontalCenter
+//            }
 
             Label {
                 id: resultLabel
@@ -205,6 +180,53 @@ Page {
                 fontSize: "large"
                 text: i18n.tr("Click or swipe on the dots")
                 color: d.selected
+            }
+            Label {
+                id: subtitle
+
+                visible: !root.editMode
+                anchors.horizontalCenter: parent.horizontalCenter
+                fontSize: "large"
+                text: i18n.tr("to select 4 digit pin")
+                color: d.selected
+                Behavior on opacity {
+                    UbuntuNumberAnimation{ duration: 500 }
+                }
+            }
+
+
+            TextField {
+                id: pinHint
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: units.gu(20)
+                readOnly: !root.editMode
+                opacity: root.currentCode.length > 0 ? 1 : 0
+                color: root.editMode ? d.normal : d.selected
+                maximumLength: root.maxPinCodeDigits
+                hasClearButton: false
+
+                font {
+                    pixelSize: units.gu(3)
+                    letterSpacing: units.gu(1.2)
+                }
+
+                secondaryItem: Icon {
+                    name: "erase"
+                    objectName: "EraseBtn"
+                    height: units.gu(3)
+                    width: units.gu(3)
+                    color: enabled ? d.selected : d.disabled
+                    enabled: root.currentCode.length > 0
+                    anchors.verticalCenter: parent.verticalCenter
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: root.removeOne()
+                    }
+                }
+
+
+                inputMethodHints: Qt.ImhDigitsOnly
+
             }
         }
 
@@ -256,15 +278,18 @@ Page {
                 property alias locker: centerImg.source
                 anchors.centerIn: parent
                 color: "transparent"
-                border.color: d.normal
+                //border.color: d.normal
                 property int number: -1
 
-                Image {
+                Icon {
                     id: centerImg
                     source: "image://theme/lock"
-                    anchors.fill: parent
-                    anchors.margins: parent.height / 4
-                    fillMode: Image.PreserveAspectFit
+                    anchors.centerIn: parent
+                    width: units.gu(4)
+                    height: width
+                    //anchors.margins: parent.height / 3
+                    color: d.selected
+                    //fillMode: Image.PreserveAspectFit
                     onSourceChanged: imgAnim.start()
                 }
 
@@ -273,7 +298,8 @@ Page {
                     anchors.fill: parent
                     propagateComposedEvents: true
                     onPressed: {
-                        root.state = "ENTRY_MODE"
+
+                        root.state = "TEST_MODE"
                         mouse.accepted = false
                     }
                 }
@@ -281,31 +307,6 @@ Page {
                 SequentialAnimation {
                     id: imgAnim
                     NumberAnimation { target: centerImg; property: "opacity"; from: 0; to: 1; duration: 1000 }
-                }
-            }
-
-            // numbers
-            Repeater {
-                id: numbers
-                model: root.maxnum
-
-                Text {
-                    id: point
-                    font.pixelSize: main.height / 10
-                    width: height
-                    color: d.disabled
-                    text: index
-                    opacity: root.state === "ENTRY_MODE" ? 1 : 0
-                    property bool selected: false
-
-                    property int bigR: main.height / 3.5
-                    property int offsetRadius: height / 2
-                    x: (main.width / 2) + bigR * Math.sin(2 * Math.PI * index / root.maxnum) - height /4
-                    y: (main.height / 2) - bigR * Math.cos(2 * Math.PI * index / root.maxnum) - offsetRadius
-
-                    Behavior on opacity {
-                        UbuntuNumberAnimation{ duration: 500 }
-                    }
                 }
             }
 
@@ -323,23 +324,26 @@ Page {
                     color: activeAreaVisible ? d.selected : "transparent"
                     opacity: activeAreaVisible ? 0.3 : 1.0
                     property int number: index
-                    property alias dot: centerDot
+                    property alias dot: point
                     property alias animation: anim
 
-                    property int bigR: root.state === "ENTRY_MODE" ? main.height / 2.7 : 0
+                    property int bigR: root.state === "ENTRY_MODE" || root.state === "TEST_MODE" || root.state === "EDIT_MODE" ? main.height / 3 : 0
                     property int offsetRadius: radius
                     x: (main.width / 2) + bigR * Math.sin(2 * Math.PI * index / root.maxnum) - offsetRadius
                     y: (main.height / 2) - bigR * Math.cos(2 * Math.PI * index / root.maxnum) - offsetRadius
 
-                    Rectangle {
-                        id: centerDot
-                        height: parent.height / 3.2
-                        width: height
-                        radius: height / 2
+                    Text {
+                        id: point
+                        font.pixelSize: main.height / 10
                         anchors.centerIn: parent
-                        color: "transparent"
-                        border.color: d.selected
-                        border.width: 2
+                        color: d.disabled
+                        text: index
+                        opacity: root.state === "ENTRY_MODE" || root.state === "TEST_MODE" || root.state === "EDIT_MODE" ? 1 : 0
+                        property bool selected: false
+
+                        Behavior on opacity {
+                            UbuntuNumberAnimation{ duration: 500 }
+                        }
                     }
 
                     MouseArea {
@@ -360,7 +364,7 @@ Page {
                         id: anim
                         ParallelAnimation {
                             PropertyAnimation {
-                                target: centerDot
+                                target: point
                                 property: "color"
                                 to: d.selected
                                 duration: 100
@@ -374,9 +378,9 @@ Page {
                         }
                         ParallelAnimation {
                             PropertyAnimation {
-                                target: centerDot
+                                target: point
                                 property: "color"
-                                to: "transparent"
+                                to: d.disabled
                                 duration: 400
                             }
                             PropertyAnimation {
@@ -427,26 +431,62 @@ Page {
             StateChangeScript {
                 script: root.reset();
             }
+        },
+        State {
+            name: "EDIT_MODE"
+            PropertyChanges { target: center; locker: "image://theme/lock" }
+            PropertyChanges { target: subtitle; text: i18n.tr("Current pin") }
+            StateChangeScript {
+                script: root.reset();
+            }
+        },
+        State {
+            name: "TEST_MODE"
+            PropertyChanges { target: center; locker: "image://theme/lock" }
+            PropertyChanges { target: subtitle; text: i18n.tr("to test your code") }
+            StateChangeScript {
+                script: root.reset();
+            }
+        },
+        State {
+            name: "PASSWORD_SUCCESS"
+            PropertyChanges { target: subtitle; text: i18n.tr("correct!") }
+            //PropertyChanges { target: subtitle; visible: false }
+            PropertyChanges { target: center; locker: "image://theme/reload" }
+            StateChangeScript {
+                script: root.reset();
+            }
         }
+//        State {
+//            name: "WRONG_PASSWORD"
+//            PropertyChanges { target: subtitle; text: i18n.tr("Wrong code, try again!") }
+//            //PropertyChanges { target: subtitle; visible: false }
+//            PropertyChanges { target: center; locker: "image://theme/reload" }
+//            StateChangeScript {
+//                script: root.reset();
+//            }
+//        }
+
     ]
 
     transitions:[
         Transition {
-            from: "ENTRY_MODE"; to: "WRONG_PASSWORD";
+            to: "WRONG_PASSWORD";
             SequentialAnimation {
-                PropertyAction { target: resultLabel; property: "text"; value: i18n.tr("Wrong code, try again!") }
+                PropertyAction { target: subtitle; property: "text"; value: i18n.tr("Wrong code, try again!") }
                 PropertyAction { target: center; property: "locker"; value: "image://theme/dialog-warning-symbolic" }
                 PauseAnimation { duration: 2000 }
-                ScriptAction { script: root.switchToEntryMode() }
+                ScriptAction { script: root.switchToTestMode() }
             }
         },
         Transition {
-            from: "ENTRY_MODE"; to: "PASSWORD_SUCCESS";
+             to: "PASSWORD_SUCCESS";
             SequentialAnimation {
-                PropertyAction { target: resultLabel; property: "text"; value: i18n.tr("Well done!")}
-                PropertyAction { target: center; property: "locker"; value: "image://theme/tick" }
+                PropertyAction { target: subtitle; property: "text"; value: i18n.tr("correct!") }
+                //PropertyAction { target: subtitle; property: "text"; value: i18n.tr("correct!")}
+                PropertyAction { target: center; property: "locker"; value: "image://theme/ok" }
                 PauseAnimation { duration: 2000 }
-                ScriptAction { script: root.switchToEntryMode() }
+                //ScriptAction { script: root.switchToEntryMode() }
             }
         }
     ]
@@ -454,6 +494,14 @@ Page {
     Timer {
         running: true
         interval: 400
-        onTriggered: root.switchToEntryMode()
+        onTriggered: {
+            if (root.changeMode) {
+                root.state = "TEST_MODE";
+            } else {
+                root.state = "ENTRY_MODE";
+            }
+
+
+        }
     }
 }
