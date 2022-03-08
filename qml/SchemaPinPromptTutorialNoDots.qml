@@ -163,12 +163,6 @@ Page {
             Layout.alignment: Qt.AlignHCenter
             spacing: units.gu(2)
 
-//            Label {
-//                text: root.editMode ? i18n.tr("enter custom code:") : i18n.tr("try code:")
-//                color: d.selected
-//                anchors.horizontalCenter: parent.horizontalCenter
-//            }
-
             Label {
                 id: resultLabel
 
@@ -180,32 +174,18 @@ Page {
             }
             Label {
                 id: subtitle
-
                 visible: !root.editMode
                 anchors.horizontalCenter: parent.horizontalCenter
                 fontSize: "large"
-                text: i18n.tr("to create a 4 digit pin")
+                text: " "
+                //text: i18n.tr("to create a 4 digit pin")
                 color: d.selected
-                Behavior on opacity {
-                    UbuntuNumberAnimation{ duration: 500 }
-                }
-                onTextChanged: subtitleAnim.restart()
-                SequentialAnimation {
-                    id: subtitleAnim
 
-                    PropertyAnimation {
-                        target: subtitle
-                        property: "opacity"
-                        to: 0
-                        duration: 20
-                        easing.type: Easing.OutQuart
-                    }
-                    PropertyAnimation {
-                        target: subtitle
-                        property: "opacity"
-                        to: 1
-                        duration: 600
-                        easing.type: Easing.InOutCubic
+                Behavior on text {
+                    SequentialAnimation {
+                        NumberAnimation { target: subtitle; property: "opacity"; to: 0 }
+                        PropertyAction {}
+                        NumberAnimation { target: subtitle; property: "opacity"; to: 1 }
                     }
                 }
             }
@@ -461,6 +441,8 @@ Page {
                 locker: "image://theme/lock"
             }
             PropertyChanges { target: resultLabel; text: i18n.tr("Click or swipe on the digits") }
+            PropertyChanges { target: subtitle; text: i18n.tr("to create a 4 digit pin") }
+
 
             StateChangeScript {
                 script: root.reset();
@@ -529,14 +511,16 @@ Page {
         running: true
         interval: 400
         onTriggered: {
-            root.state = "ENTRY_MODE";
-//            if (root.changeMode) {
-//                root.state = "TEST_MODE";
-//            } else {
-//                root.state = "ENTRY_MODE";
-//            }
+            //root.state = "ENTRY_MODE";
+            if (root.changeMode) {
+                root.state = "EDIT_MODE";
+            } else {
+                root.state = "ENTRY_MODE";
+            }
 
 
         }
     }
+
+    onStateChanged: console.log('state', root.state)
 }

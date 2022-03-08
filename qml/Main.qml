@@ -51,7 +51,7 @@ MainView {
                 onTriggered: pageStack.addPageToCurrentColumn(home, Qt.resolvedUrl("SecurityCreateScenario.qml"))
             }
             Button {
-                enabled: false
+                //enabled: false
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: "V2 (change pincode scenario)"
                 onTriggered: pageStack.addPageToCurrentColumn(home, Qt.resolvedUrl("SecurityCreateScenario.qml"), { changeMode: true, index: 2 })

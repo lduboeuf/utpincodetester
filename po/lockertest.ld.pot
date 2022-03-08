@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lockertest.ld\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-08 09:10+0000\n"
+"POT-Creation-Date: 2022-03-08 13:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,12 +35,12 @@ msgid "Click or swipe on the dots"
 msgstr ""
 
 #: ../qml/SchemaPinPromptTutorial.qml:432
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:444
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:431
 msgid "Display active area"
 msgstr ""
 
 #: ../qml/SchemaPinPromptTutorial.qml:463
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:510
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:499
 msgid "Wrong code, try again!"
 msgstr ""
 
@@ -53,7 +53,7 @@ msgid "Clock prompt"
 msgstr ""
 
 #: ../qml/SchemaPinPromptTutorialNoDots.qml:120
-#: ../qml/SecurityCreateScenario.qml:151
+#: ../qml/SecurityCreateScenario.qml:152
 msgid "validate"
 msgstr ""
 
@@ -62,24 +62,24 @@ msgid "edit"
 msgstr ""
 
 #: ../qml/SchemaPinPromptTutorialNoDots.qml:178
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:463
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:450
 msgid "Click or swipe on the digits"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:187
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:451
 msgid "to create a 4 digit pin"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:472
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:461
 msgid "Current pin"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:480
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:469
 msgid "to test your code"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:487
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:519
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:476
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:508
 msgid "correct!"
 msgstr ""
 
@@ -147,15 +147,15 @@ msgstr ""
 msgid "4-digit passcode (clock)..."
 msgstr ""
 
-#: ../qml/SecurityCreateScenario.qml:116
+#: ../qml/SecurityCreateScenario.qml:117
 msgid "Change passcode…"
 msgstr ""
 
-#: ../qml/SecurityCreateScenario.qml:124
+#: ../qml/SecurityCreateScenario.qml:125
 msgid "Existing passcode"
 msgstr ""
 
-#: ../qml/SecurityCreateScenario.qml:145
+#: ../qml/SecurityCreateScenario.qml:146
 msgid "Cancel"
 msgstr ""
 

@@ -78,28 +78,29 @@ Page {
             onDelegateClicked: {
                 console.log(index, selectedIndex)
                 if (index === 2) {
-                    //if (root.changeMode) {
-                    var incubator = pageStack.addPageToNextColumn(root, Qt.resolvedUrl("SchemaPinPromptTutorialNoDots.qml"), { changeMode: root.changeMode})
-                    console.log('incubator status',incubator.status)
-                    if (incubator.status === Component.Ready) {
+                    if (root.changeMode) {
+                        pageStack.addPageToNextColumn(root, Qt.resolvedUrl("SchemaPinPromptTutorialNoDots.qml"), { changeMode: root.changeMode})
+//                    var incubator = pageStack.addPageToNextColumn(root, Qt.resolvedUrl("SchemaPinPromptTutorialNoDots.qml"), { changeMode: root.changeMode})
+//                    console.log('incubator status',incubator.status)
+//                    if (incubator.status === Component.Ready) {
+//                    } else {
+//                        console.log('loaded')
+//                        incubator.onStatusChanged = function(status) {
+//                            console.log('kikou status', status)
+//                            if (status == Component.Ready) {
+
+//                                incubator.object.accepted.connect(function(response) {
+//                                    console.log('kikou pincode', response)
+//                                    var dialog = PopupUtils.open(dialogComponent, root, { pinCode: response})
+
+//                                });
+//                            }
+//                        }
+//                    }
+
                     } else {
-                        console.log('loaded')
-                        incubator.onStatusChanged = function(status) {
-                            console.log('kikou status', status)
-                            if (status == Component.Ready) {
-
-                                incubator.object.accepted.connect(function(response) {
-                                    console.log('kikou pincode', response)
-                                    var dialog = PopupUtils.open(dialogComponent, root, { pinCode: response})
-
-                                });
-                            }
-                        }
+                        var dialog = PopupUtils.open(dialogComponent, root)
                     }
-
-                    //} else {
-                    //    var dialog = PopupUtils.open(dialogComponent, root)
-                    //}
 
                     //pageStack.addPageToNextColumn(root, Qt.resolvedUrl("SchemaPinPromptTutorialNoDots.qml"))
                 }
@@ -115,7 +116,7 @@ Page {
             id: dialog
             title: i18n.tr("Change passcode…")
 
-            property string pinCode: ""
+            //property string pinCode: ""
             // the dialog and its children will use SuruDark
 //            theme: ThemeSettings {
 //                name: "Ubuntu.Components.Themes.SuruDark"
@@ -124,18 +125,18 @@ Page {
                 placeholderText: i18n.tr("Existing passcode")
             }
 
-            TextField {
-                id: setInput
-                //
-                text: pinCode
-                echoMode: TextInput.Password
-            }
+//            TextField {
+//                id: setInput
+//                //
+//                text: pinCode
+//                echoMode: TextInput.Password
+//            }
 
-            TextField {
-                id: confirmInput
-                text: pinCode
-                echoMode: TextInput.Password
-            }
+//            TextField {
+//                id: confirmInput
+//                text: pinCode
+//                echoMode: TextInput.Password
+//            }
 
             RowLayout {
                 spacing: units.gu(1)
@@ -151,8 +152,8 @@ Page {
                     text: i18n.tr("validate")
                     onClicked: {
                         PopupUtils.close(dialog)
-                        pageStack.removePages(root)
-                        //pageStack.addPageToNextColumn(root, Qt.resolvedUrl("SchemaPinPromptTutorialNoDots.qml"))
+                        //pageStack.removePages(root)
+                        pageStack.addPageToNextColumn(root, Qt.resolvedUrl("SchemaPinPromptTutorialNoDots.qml"))
                     }
                 }
             }
