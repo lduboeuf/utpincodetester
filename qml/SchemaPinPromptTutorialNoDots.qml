@@ -29,12 +29,9 @@ Page {
     property bool loginError: false
     property bool hasKeyboard: false //unused
     property string enteredText: ""
-    property bool keyboardNeeded: false
-    property bool editMode: false
     property bool activeAreaVisible: false
     property bool changeMode: false
 
-    //property string codeToTest: Math.floor(1000 + Math.random() * 9000)
     property string codeToTest: ""
     property int previousNumber: -1
     property var currentCode: []
@@ -109,6 +106,7 @@ Page {
         pinHint.forceActiveFocus()
     }
 
+
     header: PageHeader {
         id: pageHeader
         title: i18n.tr('Clock prompt')
@@ -164,9 +162,7 @@ Page {
             spacing: units.gu(2)
 
             Label {
-                id: resultLabel
-
-                visible: !root.editMode
+                id: topLabel
                 anchors.horizontalCenter: parent.horizontalCenter
                 fontSize: "large"
                 text: i18n.tr("Click or swipe on the digits")
@@ -174,11 +170,9 @@ Page {
             }
             Label {
                 id: subtitle
-                visible: !root.editMode
                 anchors.horizontalCenter: parent.horizontalCenter
                 fontSize: "large"
                 text: " "
-                //text: i18n.tr("to create a 4 digit pin")
                 color: d.selected
 
                 Behavior on text {
@@ -195,7 +189,7 @@ Page {
                 id: pinHint
                 anchors.horizontalCenter: parent.horizontalCenter
                 width: units.gu(20)
-                readOnly: !root.editMode
+                readOnly: true
                 color: d.disabled
                 maximumLength: root.maxPinCodeDigits
                 hasClearButton: false
@@ -260,8 +254,6 @@ Page {
             MouseArea {
                 id: mouseArea
                 anchors.fill: parent
-                enabled: !root.editMode
-                //onPressed: checkboxActive.checked = false
 
                 onPositionChanged: {
                     if (pressed)
@@ -362,7 +354,6 @@ Page {
 
                     MouseArea {
                         anchors.fill: parent
-                        enabled: !root.editMode
                         onPressed: {
                             root.addNumber(index)
                             mouse.accepted = false
@@ -416,8 +407,7 @@ Page {
             spacing: units.gu(2)
 
             RowLayout {
-                 width: parent.width
-                visible: !root.editMode
+                width: parent.width
                 Label {
                     Layout.fillWidth: true
                     Layout.alignment: Qt.AlignLeft
@@ -440,7 +430,7 @@ Page {
                 target: center
                 locker: "image://theme/lock"
             }
-            PropertyChanges { target: resultLabel; text: i18n.tr("Click or swipe on the digits") }
+            PropertyChanges { target: topLabel; text: i18n.tr("Click or swipe on the digits") }
             PropertyChanges { target: subtitle; text: i18n.tr("to create a 4 digit pin") }
 
 
@@ -467,22 +457,11 @@ Page {
         State {
             name: "PASSWORD_SUCCESS"
             PropertyChanges { target: subtitle; text: i18n.tr("correct!") }
-            //PropertyChanges { target: subtitle; visible: false }
             PropertyChanges { target: center; locker: "image://theme/reload" }
             StateChangeScript {
                 script: root.reset();
             }
         }
-//        State {
-//            name: "WRONG_PASSWORD"
-//            PropertyChanges { target: subtitle; text: i18n.tr("Wrong code, try again!") }
-//            //PropertyChanges { target: subtitle; visible: false }
-//            PropertyChanges { target: center; locker: "image://theme/reload" }
-//            StateChangeScript {
-//                script: root.reset();
-//            }
-//        }
-
     ]
 
     transitions:[
@@ -499,10 +478,8 @@ Page {
              to: "PASSWORD_SUCCESS";
             SequentialAnimation {
                 PropertyAction { target: subtitle; property: "text"; value: i18n.tr("correct!") }
-                //PropertyAction { target: subtitle; property: "text"; value: i18n.tr("correct!")}
                 PropertyAction { target: center; property: "locker"; value: "image://theme/ok" }
                 PauseAnimation { duration: 2000 }
-                //ScriptAction { script: root.switchToEntryMode() }
             }
         }
     ]
@@ -511,7 +488,6 @@ Page {
         running: true
         interval: 400
         onTriggered: {
-            //root.state = "ENTRY_MODE";
             if (root.changeMode) {
                 root.state = "EDIT_MODE";
             } else {
@@ -521,6 +497,4 @@ Page {
 
         }
     }
-
-    onStateChanged: console.log('state', root.state)
 }

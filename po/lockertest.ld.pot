@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lockertest.ld\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-08 13:46+0000\n"
+"POT-Creation-Date: 2022-03-08 14:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,12 +35,12 @@ msgid "Click or swipe on the dots"
 msgstr ""
 
 #: ../qml/SchemaPinPromptTutorial.qml:432
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:431
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:414
 msgid "Display active area"
 msgstr ""
 
 #: ../qml/SchemaPinPromptTutorial.qml:463
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:499
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:471
 msgid "Wrong code, try again!"
 msgstr ""
 
@@ -48,38 +48,38 @@ msgstr ""
 msgid "Well done!"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:114
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:112
 msgid "Clock prompt"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:120
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:118
 #: ../qml/SecurityCreateScenario.qml:152
 msgid "validate"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:130
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:128
 msgid "edit"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:178
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:450
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:168
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:433
 msgid "Click or swipe on the digits"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:451
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:434
 msgid "to create a 4 digit pin"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:461
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:444
 msgid "Current pin"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:469
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:452
 msgid "to test your code"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:476
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:508
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:459
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:480
 msgid "correct!"
 msgstr ""
 
