@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lockertest.ld\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-07 23:42+0000\n"
+"POT-Creation-Date: 2022-03-08 09:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,32 +21,30 @@ msgstr ""
 msgid "Clock prompt tester"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorial.qml:143
+#: ../qml/SchemaPinPromptTutorial.qml:144
 msgid "enter custom code:"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorial.qml:143
+#: ../qml/SchemaPinPromptTutorial.qml:144
 msgid "try code:"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorial.qml:206
-#: ../qml/SchemaPinPromptTutorial.qml:425
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:186
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:476
+#: ../qml/SchemaPinPromptTutorial.qml:207
+#: ../qml/SchemaPinPromptTutorial.qml:451
 msgid "Click or swipe on the dots"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorial.qml:406
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:457
+#: ../qml/SchemaPinPromptTutorial.qml:432
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:444
 msgid "Display active area"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorial.qml:437
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:523
+#: ../qml/SchemaPinPromptTutorial.qml:463
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:510
 msgid "Wrong code, try again!"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorial.qml:446
+#: ../qml/SchemaPinPromptTutorial.qml:472
 msgid "Well done!"
 msgstr ""
 
@@ -63,20 +61,25 @@ msgstr ""
 msgid "edit"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:195
-msgid "to select 4 digit pin"
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:178
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:463
+msgid "Click or swipe on the digits"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:485
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:187
+msgid "to create a 4 digit pin"
+msgstr ""
+
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:472
 msgid "Current pin"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:493
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:480
 msgid "to test your code"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:500
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:532
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:487
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:519
 msgid "correct!"
 msgstr ""
 

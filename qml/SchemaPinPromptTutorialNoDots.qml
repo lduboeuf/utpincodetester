@@ -115,7 +115,7 @@ Page {
         trailingActionBar {
             actions: [
                 Action {
-                    iconName: "tick"
+                    iconName: "ok"
                     visible: root.state === "PASSWORD_SUCCESS"
                     text: i18n.tr("validate")
                     onTriggered: {
@@ -136,15 +136,7 @@ Page {
 
     Rectangle {
         anchors.fill: parent
-        color: "purple"
-//        MouseArea {
-//            anchors.fill: parent
-//            enabled: root.editMode
-//            onClicked: {
-//                pinHint.text = ""
-//                pinHint.text = root.codeToTest
-//            }
-//        }
+        color: UbuntuColors.lightAubergine
     }
 
     StyledItem {
@@ -183,7 +175,7 @@ Page {
                 visible: !root.editMode
                 anchors.horizontalCenter: parent.horizontalCenter
                 fontSize: "large"
-                text: i18n.tr("Click or swipe on the dots")
+                text: i18n.tr("Click or swipe on the digits")
                 color: d.selected
             }
             Label {
@@ -192,7 +184,7 @@ Page {
                 visible: !root.editMode
                 anchors.horizontalCenter: parent.horizontalCenter
                 fontSize: "large"
-                text: i18n.tr("to select 4 digit pin")
+                text: i18n.tr("to create a 4 digit pin")
                 color: d.selected
                 Behavior on opacity {
                     UbuntuNumberAnimation{ duration: 500 }
@@ -208,16 +200,11 @@ Page {
                         duration: 20
                         easing.type: Easing.OutQuart
                     }
-//                    PropertyAction {
-//                        target: subtitle
-//                        property: "count"
-//                        value: txt.count + 1
-//                    }
                     PropertyAnimation {
                         target: subtitle
                         property: "opacity"
                         to: 1
-                        duration: 1000
+                        duration: 600
                         easing.type: Easing.InOutCubic
                     }
                 }
@@ -473,7 +460,7 @@ Page {
                 target: center
                 locker: "image://theme/lock"
             }
-            PropertyChanges { target: resultLabel; text: i18n.tr("Click or swipe on the dots") }
+            PropertyChanges { target: resultLabel; text: i18n.tr("Click or swipe on the digits") }
 
             StateChangeScript {
                 script: root.reset();

@@ -103,6 +103,7 @@ Page {
     }
 
     Rectangle {
+        id: background
         anchors.fill: parent
         color: "purple"
         MouseArea {
@@ -396,6 +397,31 @@ Page {
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignBottom
             spacing: units.gu(2)
+
+            ListView {
+                width: parent.width
+                height: units.gu(6)
+                orientation: Qt.Horizontal
+                //Repeater {
+                    model: [UbuntuColors.ash, UbuntuColors.blue, UbuntuColors.coolGrey, UbuntuColors.darkAubergine,
+                        UbuntuColors.darkGrey, UbuntuColors.graphite, UbuntuColors.green, UbuntuColors.greyGradient,
+                        UbuntuColors.inkstone, UbuntuColors.jet, UbuntuColors.lightAubergine, UbuntuColors.lightBlue, UbuntuColors.lightGreen,
+                         UbuntuColors.lightGrey,  UbuntuColors.lightRed,  UbuntuColors.orange,  UbuntuColors.porcelain,
+                        UbuntuColors.purple,  UbuntuColors.red,  UbuntuColors.silk,  UbuntuColors.slate,  UbuntuColors.warmGrey ]
+                    delegate:
+                    Rectangle {
+                        width: units.gu(6)
+                        height: width
+                        color: modelData
+
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: background.color = modelData
+                        }
+                    }
+                //}
+
+            }
 
             RowLayout {
                  width: parent.width
