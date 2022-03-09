@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lockertest.ld\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-08 14:06+0000\n"
+"POT-Creation-Date: 2022-03-09 22:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,12 +35,12 @@ msgid "Click or swipe on the dots"
 msgstr ""
 
 #: ../qml/SchemaPinPromptTutorial.qml:432
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:414
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:425
 msgid "Display active area"
 msgstr ""
 
 #: ../qml/SchemaPinPromptTutorial.qml:463
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:471
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:486
 msgid "Wrong code, try again!"
 msgstr ""
 
@@ -52,34 +52,35 @@ msgstr ""
 msgid "Clock prompt"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:118
-#: ../qml/SecurityCreateScenario.qml:152
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:120
+#: ../qml/SecurityCreateScenario.qml:154
 msgid "validate"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:128
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:130
 msgid "edit"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:168
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:433
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:186
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:447
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:465
 msgid "Click or swipe on the digits"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:434
-msgid "to create a 4 digit pin"
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:446
+msgid "Create a 4 digit pin"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:444
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:455
 msgid "Current pin"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:452
-msgid "to test your code"
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:464
+msgid "Test your code"
 msgstr ""
 
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:459
-#: ../qml/SchemaPinPromptTutorialNoDots.qml:480
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:472
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:495
 msgid "correct!"
 msgstr ""
 
@@ -148,14 +149,14 @@ msgid "4-digit passcode (clock)..."
 msgstr ""
 
 #: ../qml/SecurityCreateScenario.qml:117
-msgid "Change passcode…"
+msgid "Type your current pin"
 msgstr ""
 
 #: ../qml/SecurityCreateScenario.qml:125
 msgid "Existing passcode"
 msgstr ""
 
-#: ../qml/SecurityCreateScenario.qml:146
+#: ../qml/SecurityCreateScenario.qml:148
 msgid "Cancel"
 msgstr ""
 

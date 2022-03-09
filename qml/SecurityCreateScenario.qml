@@ -114,7 +114,7 @@ Page {
         id: dialogComponent
         Dialog {
             id: dialog
-            title: i18n.tr("Change passcode…")
+            title: i18n.tr("Type your current pin")
 
             //property string pinCode: ""
             // the dialog and its children will use SuruDark
@@ -123,6 +123,8 @@ Page {
 //            }
             TextField {
                 placeholderText: i18n.tr("Existing passcode")
+                focus: true
+                echoMode: TextInput.Password
             }
 
 //            TextField {
@@ -151,9 +153,27 @@ Page {
                     color: theme.palette.normal.positive
                     text: i18n.tr("validate")
                     onClicked: {
-                        PopupUtils.close(dialog)
+                        //pageStack.addPageToNextColumn(root, Qt.resolvedUrl("SchemaPinPromptTutorialNoDots.qml"))
+                        var incubator = pageStack.addPageToNextColumn(root, Qt.resolvedUrl("SchemaPinPromptTutorialNoDots.qml"))
+                        console.log('incubator status',incubator.status)
+                        if (incubator.status === Component.Ready) {
+                            PopupUtils.close(dialog)
+                        } else {
+                            console.log('loaded')
+                            incubator.onStatusChanged = function(status) {
+                                console.log('kikou status', status)
+                                if (status == Component.Ready) {
+                                    PopupUtils.close(dialog)
+//                                    incubator.object.accepted.connect(function(response) {
+//                                        console.log('kikou pincode', response)
+//                                        var dialog = PopupUtils.open(dialogComponent, root, { pinCode: response})
+
+//                                    });
+                                }
+                            }
+                        }
+                        //PopupUtils.close(dialog)
                         //pageStack.removePages(root)
-                        pageStack.addPageToNextColumn(root, Qt.resolvedUrl("SchemaPinPromptTutorialNoDots.qml"))
                     }
                 }
             }

@@ -114,7 +114,9 @@ Page {
             actions: [
                 Action {
                     iconName: "ok"
-                    visible: root.state === "PASSWORD_SUCCESS"
+                    //visible: root.state === "PASSWORD_SUCCESS"
+                    enabled: root.state === "PASSWORD_SUCCESS"
+                    //color: root.state === "PASSWORD_SUCCESS" ? d.selected : d.disabled
                     text: i18n.tr("validate")
                     onTriggered: {
                         console.log('validate', root.codeToTest)
@@ -124,9 +126,9 @@ Page {
                 },
                 Action {
                     iconName: "edit"
-                    visible: root.changeMode && root.state === "TEST_MODE"
+                    visible: root.state === "TEST_MODE"
                     text: i18n.tr("edit")
-                    onTriggered: root.state = "EDIT_MODE"
+                    onTriggered: root.state = "ENTRY_MODE"
                 }
             ]
         }
@@ -165,25 +167,33 @@ Page {
                 id: topLabel
                 anchors.horizontalCenter: parent.horizontalCenter
                 fontSize: "large"
-                text: i18n.tr("Click or swipe on the digits")
-                color: d.selected
-            }
-            Label {
-                id: subtitle
-                anchors.horizontalCenter: parent.horizontalCenter
-                fontSize: "large"
-                text: " "
+
+                text: " " // so that height will not be 0
                 color: d.selected
 
                 Behavior on text {
                     SequentialAnimation {
-                        NumberAnimation { target: subtitle; property: "opacity"; to: 0 }
+                        NumberAnimation { target: topLabel; property: "opacity"; to: 0 }
                         PropertyAction {}
-                        NumberAnimation { target: subtitle; property: "opacity"; to: 1 }
+                        NumberAnimation { target: topLabel; property: "opacity"; to: 1; duration: 500 }
                     }
                 }
             }
+            Label {
+                id: subtitle
+                anchors.horizontalCenter: parent.horizontalCenter
+                fontSize: "medium"
+                text: i18n.tr("Click or swipe on the digits")
+                color: d.selected
 
+//                Behavior on text {
+//                    SequentialAnimation {
+//                        NumberAnimation { target: subtitle; property: "opacity"; to: 0 }
+//                        PropertyAction {}
+//                        NumberAnimation { target: subtitle; property: "opacity"; to: 1; duration: 1000 }
+//                    }
+//                }
+            }
 
             TextField {
                 id: pinHint
@@ -294,7 +304,7 @@ Page {
                     width: units.gu(4)
                     height: width
                     //anchors.margins: parent.height / 3
-                    color: d.selected
+                    color: d.disabled
                     //fillMode: Image.PreserveAspectFit
                     onSourceChanged: imgAnim.start()
                 }
@@ -304,8 +314,9 @@ Page {
                     anchors.fill: parent
                     propagateComposedEvents: true
                     onPressed: {
-
-                        root.state = "TEST_MODE"
+                        if (root.state === "PASSWORD_SUCCESS") {
+                            root.state = "TEST_MODE"
+                        }
                         mouse.accepted = false
                     }
                 }
@@ -423,6 +434,8 @@ Page {
         }
     }
 
+    onStateChanged: root.reset();
+
     states: [
         State{
             name: "ENTRY_MODE"
@@ -430,37 +443,39 @@ Page {
                 target: center
                 locker: "image://theme/lock"
             }
-            PropertyChanges { target: topLabel; text: i18n.tr("Click or swipe on the digits") }
-            PropertyChanges { target: subtitle; text: i18n.tr("to create a 4 digit pin") }
+            PropertyChanges { target: topLabel; text: i18n.tr("Create a 4 digit pin") }
+            PropertyChanges { target: subtitle; text: i18n.tr("Click or swipe on the digits") }
 
-
-            StateChangeScript {
-                script: root.reset();
-            }
+//            StateChangeScript {
+//                script: root.reset();
+//            }
         },
         State {
             name: "EDIT_MODE"
+            PropertyChanges { target: topLabel; text: i18n.tr("Current pin") }
             PropertyChanges { target: center; locker: "image://theme/lock" }
-            PropertyChanges { target: subtitle; text: i18n.tr("Current pin") }
-            StateChangeScript {
-                script: root.reset();
-            }
+//            StateChangeScript {
+//                script: root.reset();
+//            }
         },
         State {
             name: "TEST_MODE"
             PropertyChanges { target: center; locker: "image://theme/lock" }
-            PropertyChanges { target: subtitle; text: i18n.tr("to test your code") }
-            StateChangeScript {
-                script: root.reset();
-            }
+            PropertyChanges { target: topLabel; text: i18n.tr("Test your code") }
+            PropertyChanges { target: subtitle; text: i18n.tr("Click or swipe on the digits") }
+//            StateChangeScript {
+//                script: root.reset();
+//            }
         },
         State {
             name: "PASSWORD_SUCCESS"
             PropertyChanges { target: subtitle; text: i18n.tr("correct!") }
+
             PropertyChanges { target: center; locker: "image://theme/reload" }
-            StateChangeScript {
-                script: root.reset();
-            }
+            PropertyChanges { target: centerImg; color: d.selected }
+//            StateChangeScript {
+//                script: root.reset();
+//            }
         }
     ]
 

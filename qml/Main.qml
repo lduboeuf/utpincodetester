@@ -40,6 +40,11 @@ MainView {
         Column {
             anchors.centerIn: parent
             spacing: units.gu(2)
+            Label {
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: "System settings  pin clock integration tests:"
+            }
+
             Button {
                 text: "V1 ( tester only)"
                 onTriggered: pageStack.addPageToCurrentColumn(home, Qt.resolvedUrl("Security.qml"))
@@ -48,7 +53,7 @@ MainView {
             Button {
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: "V2 (create pincode scenario)"
-                onTriggered: pageStack.addPageToCurrentColumn(home, Qt.resolvedUrl("SecurityCreateScenario.qml"))
+                onTriggered: pageStack.addPageToCurrentColumn(home, Qt.resolvedUrl("SecurityCreateScenario.qml"), { index: 1 })
             }
             Button {
                 //enabled: false

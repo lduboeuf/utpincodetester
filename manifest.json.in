@@ -2,14 +2,14 @@
     "name": "lockertest.ld",
     "description": "A short description of your app",
     "architecture": "@CLICK_ARCH@",
-    "title": "LockerTest",
+    "title": "System setting clock unlocker test",
     "hooks": {
         "lockertest": {
             "apparmor": "lockertest.apparmor",
             "desktop":  "lockertest.desktop"
         }
     },
-    "version": "1.6.5",
+    "version": "1.6.8",
     "maintainer": "Your FullName <email@domain.org>",
     "framework" : "@CLICK_FRAMEWORK@"
 }
