@@ -1,0 +1,109 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the lockertest.ld package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lockertest.ld\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-03 21:06+0000\n"
+"PO-Revision-Date: 2022-03-04 13:55+0100\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+
+#: ../qml/SchemaPinPromptTutorial.qml:98
+msgid "Clock prompt demo"
+msgstr "Klokscherm-demo"
+
+#: ../qml/SchemaPinPromptTutorial.qml:139
+msgid "enter custom code:"
+msgstr "Voer een aangepaste code in:"
+
+#: ../qml/SchemaPinPromptTutorial.qml:139
+msgid "try code:"
+msgstr "Probeer de code:"
+
+#: ../qml/SchemaPinPromptTutorial.qml:202
+msgid "Click or swipe on the dots"
+msgstr "Druk op of veeg over de punten"
+
+#: ../qml/SchemaPinPromptTutorial.qml:402
+msgid "Display active area"
+msgstr "Gebruikt gebied tonen"
+
+#: ../qml/SchemaPinPromptTutorial.qml:429
+#: ../qml/SchemaPinPromptTutorial.qml:448
+msgid "Wrong code, try again!"
+msgstr "Onjuiste code - probeer het opnieuw!"
+
+#: ../qml/SchemaPinPromptTutorial.qml:440
+#: ../qml/SchemaPinPromptTutorial.qml:454
+msgid "Well done!"
+msgstr "Goed zo!"
+
+#: ../qml/Security.qml:12
+msgid "Lock security"
+msgstr "Beveiliging"
+
+#: ../qml/Security.qml:23
+msgid "Swipe (no security)"
+msgstr "Vegen (geen beveiliging)"
+
+#: ../qml/Security.qml:24
+msgid "4-digit passcode"
+msgstr "4-cijferige pincode"
+
+#: ../qml/Security.qml:25
+msgid "Passphrase"
+msgstr "Toegangszin"
+
+#: ../qml/Security.qml:26
+msgid "Fingerprint"
+msgstr "Vingerafdruk"
+
+#: ../qml/Security.qml:27
+msgid "Swipe (no security)… "
+msgstr "Vegen (geen beveiliging)… "
+
+#: ../qml/Security.qml:28
+msgid "4-digit passcode…"
+msgstr "4-cijferige pincode…"
+
+#: ../qml/Security.qml:29
+msgid "Passphrase…"
+msgstr "Toegangszin…"
+
+#: ../qml/Security.qml:107
+msgid "Choose pincode prompt"
+msgstr "Kies een pincodescherm"
+
+#: ../qml/Security.qml:138 ../qml/Security.qml:193
+msgid "try me"
+msgstr "Uitproberen"
+
+#: ../qml/Security.qml:161
+msgid "Classic keyboard input"
+msgstr "Ouderwetse toetsenbordinvoer"
+
+#: ../qml/Security.qml:161
+msgid "Default Prompt"
+msgstr "Standaardscherm"
+
+#: ../qml/Security.qml:162
+msgid "Click or swipe on dots to unlock"
+msgstr "Druk op of veeg over de punten"
+
+#: ../qml/Security.qml:162
+msgid "Clock Prompt"
+msgstr "Klokscherm"
+
+#: lockertest.desktop.in.h:1
+msgid "LockerTest"
+msgstr "Vergrendelschermtest"
