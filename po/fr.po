@@ -1,0 +1,164 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the lockertest.ld package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: lockertest.ld\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-09 22:45+0000\n"
+"PO-Revision-Date: 2022-03-20 15:37+0000\n"
+"Last-Translator: Anne017 <anneonyme017@openmailbox.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../qml/Main.qml:37 ../qml/SchemaPinPromptTutorial.qml:102
+msgid "Clock prompt tester"
+msgstr "Testeur d'accueil en horloge"
+
+#: ../qml/SchemaPinPromptTutorial.qml:144
+msgid "enter custom code:"
+msgstr "Saisissez un code personnel :"
+
+#: ../qml/SchemaPinPromptTutorial.qml:144
+msgid "try code:"
+msgstr "Essayez le code :"
+
+#: ../qml/SchemaPinPromptTutorial.qml:207
+#: ../qml/SchemaPinPromptTutorial.qml:451
+msgid "Click or swipe on the dots"
+msgstr "Cliquez ou faites glisser sur les points"
+
+#: ../qml/SchemaPinPromptTutorial.qml:432
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:425
+msgid "Display active area"
+msgstr "Afficher la zone active"
+
+#: ../qml/SchemaPinPromptTutorial.qml:463
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:486
+msgid "Wrong code, try again!"
+msgstr "Mauvais code, essayez à nouveau !"
+
+#: ../qml/SchemaPinPromptTutorial.qml:472
+msgid "Well done!"
+msgstr "Bien joué !"
+
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:112
+msgid "Clock prompt"
+msgstr "Accueil en horloge"
+
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:120
+#: ../qml/SecurityCreateScenario.qml:154
+msgid "validate"
+msgstr "Valider"
+
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:130
+msgid "edit"
+msgstr "Modifier"
+
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:186
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:447
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:465
+msgid "Click or swipe on the digits"
+msgstr "Cliquez ou faites glisser sur les chiffres"
+
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:446
+msgid "Create a 4 digit pin"
+msgstr "Créer un code à 4 chiffres"
+
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:455
+msgid "Current pin"
+msgstr "Code actuel"
+
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:464
+msgid "Test your code"
+msgstr "Essayez votre code"
+
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:472
+#: ../qml/SchemaPinPromptTutorialNoDots.qml:495
+msgid "correct!"
+msgstr "Correct !"
+
+#: ../qml/Security.qml:12 ../qml/SecurityCreateScenario.qml:15
+msgid "Lock security"
+msgstr "Sécurité de verrouillage"
+
+#: ../qml/Security.qml:30 ../qml/SecurityCreateScenario.qml:32
+msgid "Swipe (no security)"
+msgstr "Glissement (pas de sécurité)"
+
+#: ../qml/Security.qml:31 ../qml/SecurityCreateScenario.qml:33
+msgid "4-digit passcode"
+msgstr "Code à 4 chiffres"
+
+#: ../qml/Security.qml:32 ../qml/SecurityCreateScenario.qml:35
+msgid "Passphrase"
+msgstr "Mot de passe"
+
+#: ../qml/Security.qml:33 ../qml/SecurityCreateScenario.qml:36
+msgid "Fingerprint"
+msgstr "Empreinte digitale"
+
+#: ../qml/Security.qml:34 ../qml/SecurityCreateScenario.qml:37
+msgid "Swipe (no security)… "
+msgstr "Glissement (pas de sécurité)…"
+
+#: ../qml/Security.qml:35 ../qml/SecurityCreateScenario.qml:38
+msgid "4-digit passcode…"
+msgstr "Code à 4 chiffres…"
+
+#: ../qml/Security.qml:36 ../qml/SecurityCreateScenario.qml:40
+msgid "Passphrase…"
+msgstr "Mot de passe…"
+
+#: ../qml/Security.qml:114
+msgid "Choose pincode prompt"
+msgstr "Choisissez votre code d'accueil"
+
+#: ../qml/Security.qml:145 ../qml/Security.qml:200
+msgid "try me"
+msgstr "Essayez-moi"
+
+#: ../qml/Security.qml:168
+msgid "Classic keyboard input"
+msgstr "Saisie sur clavier classique"
+
+#: ../qml/Security.qml:168
+msgid "Default Prompt"
+msgstr "Accueil par défaut"
+
+#: ../qml/Security.qml:169
+msgid "Click or swipe on dots to unlock"
+msgstr "Cliquez ou faites glisser sur les points pour déverrouiller"
+
+#: ../qml/Security.qml:169
+msgid "Clock Prompt"
+msgstr "Accueil en horloge"
+
+#: ../qml/SecurityCreateScenario.qml:34
+msgid "4-digit passcode (clock)"
+msgstr "Code à 4 chiffres (horloge)"
+
+#: ../qml/SecurityCreateScenario.qml:39
+msgid "4-digit passcode (clock)..."
+msgstr "Code à 4 chiffres (horloge)..."
+
+#: ../qml/SecurityCreateScenario.qml:117
+msgid "Type your current pin"
+msgstr "Saisissez votre code actuel"
+
+#: ../qml/SecurityCreateScenario.qml:125
+msgid "Existing passcode"
+msgstr "Mot de passe actuel"
+
+#: ../qml/SecurityCreateScenario.qml:148
+msgid "Cancel"
+msgstr "Annuler"
+
+#: lockertest.desktop.in.h:1
+msgid "LockerTest"
+msgstr "LockerTest"
